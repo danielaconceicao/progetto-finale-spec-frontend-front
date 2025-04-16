@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Luckiest+Guy&display=swap');
+
+html,
+body,
+#root {
+    height: 100%;
+    background-color: rgb(150, 149, 149);
+}
+
+.header-title {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: lightgray;
+    padding: 1rem;
+}
+
+.sideBar {
+    width: 100%;
+    padding-bottom: .8rem;
+    display: flex;
+    justify-content: end;
+    padding-right: .8rem;
+    align-items: center;
+
+    button {
+        padding: .4rem;
+
+    }
+}
+
+
+.search-card {
+    padding: 0 .5rem;
+
+    input {
+        border: none;
+        border-radius: .5rem;
+        padding: .3rem .3rem;
+    }
+}
+
+.search-icon {
+    font-size: 1.5rem;
+    color: lightgray;
+    font-weight: lighter;
+    padding-right: .8rem;
+}
+
+
+
+.allSoftware-card {
+    min-height: 100%;
+    flex-grow: 1;
+    /* faz ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+
+    p {
+        font-family: "Luckiest Guy", cursive;
+        font-size: 1.3rem;
+        margin-bottom: 3px;
+    }
+}
+
+.carousel-item img {
+    max-height: 300px;
+    width: 100%;
+    object-fit: fill;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card-img-top {
+    height: 164px;
+}
+
+
+.img-details {
+    width: 50%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.record-details {
+    background-color: lightgray;
+    width: 50%;
+    min-height: calc(100vh - 500px);
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: .5rem;
+
+    strong {
+        color: rgb(77, 77, 77);
+    }
+
+}
+
+.i-details {
+    width: 40px;
+    height: 30px;
+    background-color: rgb(162, 161, 161);
+    padding: .1rem .4rem;
+    border: 2px, solid, lightgrey;
+    cursor: pointer;
+
+    i {
+        vertical-align: auto;
+    }
+}
+
+.title-details {
+    width: 100%;
+    padding: .1rem 1rem;
+    border: 2px, solid, lightgrey;
+    background-color: rgb(162, 161, 161);
+
+}
+
+
+
+.likes {
+    color: red;
+    vertical-align: middle;
+    margin-right: .9rem;
+    font-size: 1.8rem;
+}
