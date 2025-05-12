@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
 const ComparatorModal = () => {
-    const { softwares, setIsModalVisible, setCardsId, cardsId, isModalVisible } = useContext(AppContext);
+    const { softwares, setIsModalVisible, setCardsId, cardsId } = useContext(AppContext);
     
 
     const onCloseModal = () => {
@@ -12,9 +12,9 @@ const ComparatorModal = () => {
 
     const selectedSoftwares = softwares.filter(software => cardsId.includes(software.id));
 
-    if (!isModalVisible) {
+  /*   if (!isModalVisible) {
         return null; // Non renderizzare il modal se non è visibile
-    }
+    } */
 
     if (selectedSoftwares.length < 2) {
         return (
@@ -57,9 +57,6 @@ const ComparatorModal = () => {
                                 <p>Anno: {record.releaseYear}</p>
                             </div>
                         ))}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={onCloseModal}>Chiudi</button>
                     </div>
                 </div>
             </div>

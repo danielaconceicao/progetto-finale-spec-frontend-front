@@ -36,13 +36,16 @@ export default function AppProvider({ children }) {
     const getFilteredSoftwares = useMemo(() => {
 
         const filteredSoftware = softwares.filter(software => {
+            /* barra di ricerca logica */
             const searchRecord = search ? software.title.toLowerCase().includes(search.toLowerCase()) : true;
 
+            /* filtro per categoria */
             const filteredRecord = filterCategory !== 'categories' ? software.category === filterCategory : true;
 
             return searchRecord && filteredRecord;
-        })
+        });
 
+        /* ordinamento alfabetico */
         return [...filteredSoftware].sort((a, b) => {
             return orderedTitle ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
         });
@@ -67,23 +70,30 @@ export default function AppProvider({ children }) {
     const like_key = 'likeCardsId';
 
     const [favoriteCards, setFavoriteCards] = useState(() => {
+        /* leggere un valore salvato nel browser con la chiave like_key */
         const preferredCard = localStorage.getItem(like_key);
+
+        /* Viene salvato come stringa e poi trasformato nuovamente in un array o oggetto e se è vuoto inizia con un array vuoto */
         return preferredCard ? JSON.parse(preferredCard) : [];
     });
 
     useEffect(() => {
+        /* salva nel browser con la chiave e converte l'array dei favoriti in stringa, perché ls accetta solo stringhe */
         localStorage.setItem(like_key, JSON.stringify(favoriteCards))
     }, [favoriteCards]);
 
     const isLiked = (softwareId) => {
+        /* controlla se il software è già stato clicato */
         return favoriteCards.includes(softwareId);
     }
 
     const addLike = (softwareId) => {
+        /* adiciona o software aos favoritos se ainda nao estiver na lista */
         if (!favoriteCards.includes(softwareId)) setFavoriteCards(prev => [...prev, softwareId]);
     }
 
     const removeLike = (software) => {
+        /* Aggiungi il software ai tuoi preferiti se non è già presente */
         setFavoriteCards(prev => prev.filter(softwareId => softwareId !== software));
     }
 
@@ -91,7 +101,11 @@ export default function AppProvider({ children }) {
 
 
     /* Modal */
+
+    /* visibilità modale */
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    /* contiene gli IDs delle carte */
     const [cardsId, setCardsId] = useState([]);
 
 
@@ -109,8 +123,6 @@ export default function AppProvider({ children }) {
         handleOrderedClick,
         filteredCategories,
         isLiked,
-        addLike,
-        removeLike,
         handleClickLike,
         favoriteCards,
         isModalVisible,

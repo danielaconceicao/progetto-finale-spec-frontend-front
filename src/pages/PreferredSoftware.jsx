@@ -13,7 +13,7 @@ export default function PreferredSoftware() {
 
     return (
         <>
-            <div className="d-flex pb-3">
+            <div className="d-flex py-3">
                 <MenuPrincipaleBtn />
                 <OpenModalBtn />
             </div>

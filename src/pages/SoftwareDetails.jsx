@@ -7,7 +7,7 @@ export default function SoftwareDetails() {
     const { id } = useParams();
     const { softwares } = useContext(AppContext);
     const navigate = useNavigate();
-    const location = useLocation();
+    const location = useLocation();/* ottieni informazioni dall'URL corrente */
 
     const softwareDetails = softwares.find(software => software.id === Number(id));
 
@@ -17,6 +17,7 @@ export default function SoftwareDetails() {
         navigate(-1);
     }
 
+    /* sara true solo se location.state esiste e location.state.from e uguale a 'preferiti' */
     const showButtonReturn = location.state && location.state.from === 'preferiti';
 
     return (
