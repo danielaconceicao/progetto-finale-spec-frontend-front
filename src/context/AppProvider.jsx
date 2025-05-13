@@ -32,7 +32,7 @@ export default function AppProvider({ children }) {
     }, []);
 
 
-    /* filtra i dati per la ricerca e filtra per categoria e organizza le schede da A-Z e Z-A */
+    /* filtra i dati per la ricerca e filtra per categoria e organizza le card da A-Z e Z-A */
     const getFilteredSoftwares = useMemo(() => {
 
         const filteredSoftware = softwares.filter(software => {
@@ -79,7 +79,7 @@ export default function AppProvider({ children }) {
 
     useEffect(() => {
         /* salva nel browser con la chiave e converte l'array dei favoriti in stringa, perché ls accetta solo stringhe */
-        localStorage.setItem(like_key, JSON.stringify(favoriteCards))
+        localStorage.setItem(like_key, JSON.stringify(favoriteCards));
     }, [favoriteCards]);
 
     const isLiked = (softwareId) => {

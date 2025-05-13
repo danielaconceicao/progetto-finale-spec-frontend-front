@@ -12,7 +12,11 @@ export default function FilterAndSearch() {
             {/* filro per categoria */}
             <select
                 value={filterCategory}
-                onChange={e => { setFilterCategory(e.target.value); setSearch(''); }}
+                onChange={e => {
+                    setFilterCategory(e.target.value);
+                    setSearch('');
+                }
+                }
             >
                 <option value='categories'>Tutte le categories</option>
                 {filteredCategories.map((category, index) => (

@@ -27,7 +27,7 @@ export default function Software() {
                 <FilterAndSearch />
             </div>
 
-            {/* recupero di ogni card dall'API */}
+            {/* Lista dei record, che mostra le proprietà title e category */}
             <SoftwareCardList softwares={getFilteredSoftwares} emptyMessage={'Nessun risultado trovato'}/>
             
             {isModalVisible && <Modal />}
